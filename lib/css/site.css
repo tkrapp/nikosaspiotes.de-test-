@@ -1,0 +1,301 @@
+html,
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+body.flex header {
+    flex: 0 1 auto;
+}
+
+body.flex nav.global-navigation {
+    height: 3em;
+    display: block;
+    flex: 1 1 auto;
+}
+
+body.flex main {
+    flex: 1 1 auto;
+}
+
+header {
+    background: #404040;
+    color: white;
+    padding: 0.2em 0.5em;
+    box-shadow: 0px 1px 0.3em black;
+    z-index: 1;
+}
+
+header > h1 > a {
+    color: white;
+    text-decoration: none;
+}
+
+.global-navigation {
+    position: relative;
+}
+
+.menu-element {
+    color: black;
+    transition: top 1s,
+                left 1s,
+                transform 1s,
+                border-color 1s;
+    position: absolute;
+    cursor: pointer;
+    text-decoration: none;
+    height: 3em;
+    border-left: 1px solid white;
+    top: 0;
+}
+.menu-element:hover {
+    color: black;
+}
+.menu-element:first-child {
+    border-left: none;
+}
+.menu-element:last-child {
+    border-right: 1px solid white;
+}
+
+.menu-element > div {
+    position: relative;
+    display: inline-block;
+    vertical-align: -1em;
+    margin-left: 3.5em;
+    transition: color 1s;
+    color: white;
+    padding-right: 0.5em;
+    transition: vertical-align 0.3s;
+}
+.menu-element > svg-icon {
+    position: relative;
+    text-shadow: 1px 1px #cccccc;
+    padding: 0.5em;
+    box-shadow: 1px 1px 0.3em black;
+}
+.menu-element > svg-icon path {
+    fill: white;
+}
+
+.menu-element > svg-icon {
+    display: block;
+    position: absolute;
+    transition: border-radius 0.3s,
+                width 0.3s,
+                top 0.3s,
+                left 0.3s;
+    border-radius: 0;
+    background-color: #808080;
+    width: calc(100% - 1em);
+    height: 2em;
+    top: 0;
+    left: 0;
+}
+
+.global-navigation:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3em;
+    background-color: #aaaaaa;
+    transition: background-color 4s;
+}
+
+.global-navigation.circle:before {
+    background-color: transparent;
+    transition: background-color 1s;
+}
+
+.global-navigation.circle .menu-element {
+    /* top: calc(40% - 1.2em); */
+    top: 18em;
+    left: calc(45% - 1.5em);
+    border-color: transparent;
+}
+.global-navigation.circle .menu-element > svg-icon {
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    padding: 0.5em;
+    top: -0.3em;
+    left: 0;
+}
+.global-navigation.circle .menu-element > div {
+    color: black;
+    vertical-align: -0.6em;
+}
+
+svg-icon svg {
+    width: 2em;
+    height: 2em;
+    pointer-events: none;
+}
+
+svg-icon {
+    pointer-events: none;
+    bottom: 0;
+}
+
+.global-navigation.flat #about-me.menu-element {
+    top: 0;
+    left: 0;
+    width: 10%;
+}
+#about-me.menu-element svg-icon svg {
+    width: 1.9em;
+    height: 1.9em;
+}
+
+.global-navigation.flat #guitar-lessons.menu-element {
+    top: 0px;
+    left: 10%;
+    width: 15%;
+}
+
+.global-navigation.flat #videos.menu-element {
+    top: 0;
+    left: 25%;
+    width: 10%;
+}
+#videos.menu-element svg-icon svg {
+    width: 2em;
+    height: 1.9em;
+}
+
+.global-navigation.flat #pictures.menu-element {
+    top: 0;
+    left: 35%;
+    width: 10%;
+}
+
+.global-navigation.flat #bibliographies.menu-element {
+    top: 0;
+    left: 45%;
+    width: 10%;
+}
+
+.global-navigation.flat #downloads.menu-element {
+    top: 0;
+    left: 55%;
+    width: 10%;
+}
+
+.global-navigation.flat #contact.menu-element {
+    top: 0;
+    left: 65%;
+    width: 10%;
+}
+
+.global-navigation.circle .rotate-0 { transform: rotate(  -90deg) translate(12em) rotate(    90deg); }
+.global-navigation.circle .rotate-1 { transform: rotate(  -32deg) translate(12em) rotate(    32deg); }
+.global-navigation.circle .rotate-2 { transform: rotate( 12.8deg) translate(12em) rotate( -12.8deg); }
+.global-navigation.circle .rotate-3 { transform: rotate( 64.2deg) translate(12em) rotate( -64.2deg); }
+.global-navigation.circle .rotate-4 { transform: rotate(115.6deg) translate(12em) rotate(-115.6deg); }
+.global-navigation.circle .rotate-5 { transform: rotate(  167deg) translate(12em) rotate(  -167deg); }
+.global-navigation.circle .rotate-6 { transform: rotate(211.8deg) translate(12em) rotate(-211.8deg); }
+
+@media only screen and (max-width: 600px) {
+    .menu-element {
+        padding: 0;
+        height: 2.8em;
+    }
+
+    .menu-element > div {
+        position: relative;
+        display: block;
+        opacity: 0;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .global-navigation:before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 2.8em;
+        background-color: #aaaaaa;
+        transition: background-color 4s;
+    }
+
+    .global-navigation.circle .menu-element {
+        top: 13em;
+        left: calc(50% - 1.5em);
+        border-color: transparent;
+    }
+
+    .global-navigation.circle .menu-element > div {
+        opacity: 0;
+    }
+
+    .global-navigation .menu-element > svg-icon {
+        height: 1.8em;
+    }
+    .global-navigation.circle .menu-element > svg-icon {
+        border-radius: 50%;
+    }
+
+    svg-icon svg {
+        width: 1.8em;
+        height: 1.8em;
+    }
+
+    #about-me.menu-element svg-icon svg,
+    #pictures.menu-element svg-icon svg {
+        width: 1.8em;
+        height: 1.8em;
+    }
+    #videos.menu-element svg-icon svg {
+        width: 1.7em;
+        height: 1.7em;
+        margin-left: 0.2em;
+    }
+
+    .global-navigation.flat #about-me.menu-element,
+    .global-navigation.flat #guitar-lessons.menu-element,
+    .global-navigation.flat #videos.menu-element,
+    .global-navigation.flat #pictures.menu-element,
+    .global-navigation.flat #bibliographies.menu-element,
+    .global-navigation.flat #downloads.menu-element,
+    .global-navigation.flat #contact.menu-element {
+        width: 2.9em;
+    }
+
+    .global-navigation.flat #about-me.menu-element {
+        left: 0em;
+    }
+    .global-navigation.flat #guitar-lessons.menu-element {
+        left: 2.9em;
+    }
+    .global-navigation.flat #videos.menu-element {
+        left: 5.8em;
+    }
+    .global-navigation.flat #pictures.menu-element {
+        left: 8.7em;
+    }
+    .global-navigation.flat #bibliographies.menu-element {
+        left: 11.6em;
+    }
+    .global-navigation.flat #downloads.menu-element {
+        left: 14.5em;
+    }
+    .global-navigation.flat #contact.menu-element {
+        left: 17.4em;
+    }
+
+    .global-navigation.circle .rotate-0 { transform: rotate(  -90deg) translate(8em) rotate(    90deg); }
+    .global-navigation.circle .rotate-1 { transform: rotate(  -32deg) translate(8em) rotate(    32deg); }
+    .global-navigation.circle .rotate-2 { transform: rotate( 12.8deg) translate(8em) rotate( -12.8deg); }
+    .global-navigation.circle .rotate-3 { transform: rotate( 64.2deg) translate(8em) rotate( -64.2deg); }
+    .global-navigation.circle .rotate-4 { transform: rotate(115.6deg) translate(8em) rotate(-115.6deg); }
+    .global-navigation.circle .rotate-5 { transform: rotate(  167deg) translate(8em) rotate(  -167deg); }
+    .global-navigation.circle .rotate-6 { transform: rotate(211.8deg) translate(8em) rotate(-211.8deg); }
+}
